@@ -1,0 +1,105 @@
+
+
+/ .container
+/   .jumbotron
+/     %h1 Which movie do you want to add?
+/     %p
+/       Share your movie inspiration and see what's inspiring others.
+
+
+
+
+
+
+
+
+!!!
+%html
+%head
+  %title myapp
+  = stylesheet_link_tag    'application', media: 'all' 
+  = javascript_include_tag 'application'
+  %link{:rel => "stylesheet", :href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css"}
+  %link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"}
+  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+  %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+  %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+  %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+  
+
+
+
+
+
+
+
+
+
+  = csrf_meta_tags
+%body
+ 
+  
+
+
+ 
+ 
+
+
+%header    
+  .wrapper.clearfix
+  .well.well-sm
+    #logo= link_to "myapp", root_path
+    %nav
+      - if user_signed_in?
+        .row
+          
+          .col-md-1
+          .col-md-1
+          .col-md-1
+          .col-md-1
+          .col-md-1
+          .col-md-1
+          .col-md-1
+          .col-md-1
+          .col-md-1
+          .col-md-1
+
+            = link_to current_user.name, edit_user_registration_path
+            %span.glyphicon.glyphicon-pencil
+
+          .col-md-1
+            = link_to "Add New", new_post_path, class: "button"
+            %span.glyphicon.glyphicon-upload
+          .col-md-1  
+            = link_to "Log Out",  destroy_user_session_path, method: :delete
+            %span.glyphicon.glyphicon-log-out  
+      - else
+        .row
+          .row
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+            .col-md-1
+
+            
+              = link_to "Sign In", new_user_session_path
+            .col-md-1
+              = link_to "Sign Up", new_user_registration_path, class: "button"
+
+
+                
+               
+              
+  %p.notice= notice
+  %p.alert= alert
+  
+  .wrapper
+    = yield
+

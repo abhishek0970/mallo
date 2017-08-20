@@ -1,0 +1,46 @@
+- if user_signed_in?
+	%p#intro
+	.alert.alert-success
+		%strong	Hey!!!
+		= current_user.name
+		%br/
+		%span
+			Share your movie inspiration and see what's inspiring others.
+			
+- else
+	%p#intro
+	.alert.alert-info
+		%strong Which movie do you want to add?
+		%br/
+		%span
+		Share your movie inspiration and see what's inspiring others.
+
+
+
+
+
+.container
+	#posts
+		- @post.each do |post|
+			.jumbotron
+				.row
+					.col-sm-4.col-lg-4.col-md-4
+
+						.post
+							.post_image
+								=link_to (image_tag post.image.url(:small)), post
+							.post_content
+								.title
+									%h2= link_to post.title, post
+								.data.clearfix
+									%p.username
+										Shared by
+										= post.user.name
+									%p.buttons
+										%span
+											%i.fa.fa-comments-o
+											= post.comments.count
+										%span
+											%i.fa.fa-thumbs-o-up
+											= post.get_likes.size 
+							
