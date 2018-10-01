@@ -3,7 +3,7 @@
 #post_show
 	%h1= @post.title
 	%p.username
-		Share by
+		Added by
 		= @post.user.name
 		about
 		= time_ago_in_words(@post.created_at)
@@ -12,7 +12,7 @@
 			= image_tag @post.image.url(:medium)
 			.description= simple_format(@post.description)
 		.post_data
-			= link_to "Download", @post.link, class: "button"
+			= link_to "Location of Dustbin", @post.link, class: "button"
 			= link_to like_post_path(@post) , method: :get, class: "data" do
 				%i.fa.fa-thumbs-o-up
 				= pluralize(@post.get_upvotes.size, "Like")
