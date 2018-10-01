@@ -5,15 +5,15 @@
 		= current_user.name
 		%br/
 		%span
-			Share your movie inspiration and see what's inspiring others.
+			Make sure to clean up the Dustbin within Two days to avoid pollution.
 			
 - else
 	%p#intro
 	.alert.alert-info
-		%strong Which movie do you want to add?
+		%strong Check if there's any Dustbin having 85% garbage filled level?
 		%br/
 		%span
-		Share your movie inspiration and see what's inspiring others.
+		Select the Dustbins according to the areas assigned to you.
 
 
 
@@ -34,7 +34,7 @@
 									%h2= link_to post.title, post
 								.data.clearfix
 									%p.username
-										Shared by
+										Added by
 										= post.user.name
 									%p.buttons
 										%span
