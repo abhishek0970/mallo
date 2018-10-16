@@ -18,12 +18,12 @@
 			= link_to like_post_path(@post) , method: :get, class: "data" do
 				%span.glyphicon.glyphicon-tree-deciduous
 
-				= pluralize(@post.get_upvotes.size, "Active")
+				= pluralize(@post.get_upvotes.size, "Working")
 
 			= link_to dislike_post_path(@post) , method: :get, class: "data" do
 				%span.glyphicon.glyphicon-remove
 
-				= pluralize(@post.get_downvotes.size, "Inactive")
+				= pluralize(@post.get_downvotes.size, "Not Working")
 			%p.data
 				%i.fa.fa-comments-o
 				= pluralize(@post.comments.count, "Comment")
