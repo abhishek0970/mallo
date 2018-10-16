@@ -48,7 +48,9 @@
 %header    
   .wrapper.clearfix
   .well.well-sm
-    #logo= link_to "myapp", root_path
+    %span.glyphicon.glyphicon-trash
+
+    #logo= link_to "e-vision", root_path
     %nav
       - if user_signed_in?
         .row
@@ -88,9 +90,14 @@
             .col-md-1
             .col-md-1
 
-            
+              %span.glyphicon.glyphicon-cloud-upload
+
+
               = link_to "Sign In", new_user_session_path
+              
             .col-md-1
+              %span.glyphicon.glyphicon-cloud
+
               = link_to "Sign Up", new_user_registration_path, class: "button"
 
 
