@@ -7,6 +7,18 @@
 /       Share your movie inspiration and see what's inspiring others.
 
 
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+      = form_tag search_posts_path, method: :get, class: "navbar-form navbar-right", role: "search" do
+        %p
+          = text_field_tag :search, params[:search], class: "form-control"
+          = submit_tag "Search", name: nil, class: "btn btn-default"
+    / /.navbar-collapse
+  / /.container-fluid
 
 
 
